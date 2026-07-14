@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Kiosk</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at center, #18181c 0%, #08080a 100%);
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        header {
+            margin-bottom: 45px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #1db954, #ff0000, #ff5500, #fc3c44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: #8e8e93;
+            font-size: 1.1rem;
+        }
+
+        .kiosk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 950px;
+            padding: 10px;
+        }
+
+        .kiosk-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 35px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #ffffff;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .kiosk-card:active, .kiosk-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .kiosk-card.spotify:hover { border-color: #1ed760; }
+        .kiosk-card.youtube:hover { border-color: #FF0000; }
+        .kiosk-card.soundcloud:hover { border-color: #ff5500; }
+        .kiosk-card.apple:hover { border-color: #fc3c44; }
+
+        .logo-container {
+            width: 85px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Music Station</h1>
+        <p>Select a music service to begin listening</p>
+    </header>
+
+    <div class="kiosk-grid">
+        <a href="https://open.spotify.com" class="kiosk-card spotify" target="_self">
+            <div class="logo-container">
+                <img src="spotify.png" alt="Spotify">
+            </div>
+            <span class="card-title">Spotify</span>
+        </a>
+
+        <a href="https://music.youtube.com" class="kiosk-card youtube" target="_self">
+            <div class="logo-container">
+                <img src="youtube.png" alt="YouTube Music">
+            </div>
+            <span class="card-title">YouTube Music</span>
+        </a>
+
+        <a href="https://soundcloud.com" class="kiosk-card soundcloud" target="_self">
+            <div class="logo-container">
+                <img src="soundcloud.png" alt="SoundCloud">
+            </div>
+            <span class="card-title">SoundCloud</span>
+        </a>
+
+        <a href="https://music.apple.com" class="kiosk-card apple" target="_self">
+            <div class="logo-container">
+                <img src="apple.png" alt="Apple Music">
+            </div>
+            <span class="card-title">Apple Music</span>
+        </a>
+    </div>
+
+</body>
+</html>
